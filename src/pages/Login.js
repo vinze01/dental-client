@@ -103,14 +103,14 @@ const Login = () => {
                             rules={[{ required: true, message: 'Please input your address!' }]}
                             data-aos="fade-up"
                         >
-                            <Input placeholder="Middle Name" />
+                            <Input placeholder="Address" />
                         </Form.Item>
                         <Form.Item
                             name="contactNo"
                             rules={[{ required: true, message: 'Please input your contact number!' }]}
                             data-aos="fade-up"
                         >
-                            <Input placeholder="Middle Name"/>
+                            <Input placeholder="Contact Number"/>
                         </Form.Item>
                         <Form.Item
                             name="role"
