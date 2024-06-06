@@ -1,0 +1,24 @@
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .table-container {
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  .ant-table {
+    margin-top: 20px;
+  }
+  
+  .ant-table td, .ant-table th {
+    padding: 8px;
+  }
+  
+  .ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+    white-space: nowrap;
+  }
+  

@@ -1,0 +1,19 @@
+.home-container {
+  display: flex;
+  flex-direction: column; /* Adjusted to column layout */
+  align-items: center; /* Center items horizontally */
+  padding: 20px;
+}
+
+.clinic-card,
+.advertisement-card {
+  width: 80%; /* Adjusted width for clinic card */
+  max-width: 600px; /* Set maximum width */
+  margin-bottom: 20px;
+}
+
+.advertisement-card .ant-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
