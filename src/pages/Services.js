@@ -63,10 +63,15 @@ function Services() {
     form.validateFields()
       .then(values => {
         const formattedTime = selectedTime ? selectedTime.format('HH:mm:ss') : null;
+        const formattedDate = selectedDate ? selectedDate.format('YYYY-MM-DD') : null;
 
         values.time = formattedTime;
+        values.date = formattedDate;
+        values.doctorId = selectedDoctor;
         values.serviceId = selectedService.id;
+        
         console.log('Form Values:', values);
+
         axios.post(`${process.env.REACT_APP_BACKEND_URL}/appointments/schedule`, values, {
           headers: {
             accessToken: localStorage.getItem('accessToken')
