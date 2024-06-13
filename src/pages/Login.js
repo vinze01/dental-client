@@ -16,7 +16,7 @@ const Login = () => {
         try {
             if (isSignUp) {
                 console.log('Sign-up Data Submitted: ', values);
-                axios.post('http://localhost:3001/auth/signup', values).then((response) => {
+                axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/signup`, values).then((response) => {
                     console.log('values', values)
                     if(response.data.error) {
                         notification.error({
@@ -34,7 +34,7 @@ const Login = () => {
                 })
             } else {
                 console.log('Login Data Submitted: ', values);
-                axios.post('http://localhost:3001/auth/login', values).then((response) => {
+                axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, values).then((response) => {
                     console.log('values', values)
                     console.log('response.data', response.data)
                     if (response.data.error) {

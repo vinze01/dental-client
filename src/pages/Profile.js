@@ -15,7 +15,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/auth/profile', {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/profile`, {
                     headers: {
                         accessToken: localStorage.getItem('accessToken'),
                     },
@@ -33,7 +33,7 @@ const Profile = () => {
     const handleDeleteAccount = async () => {
         try {
             await axios.put(
-                `http://localhost:3001/auth/profile/delete/${userProfile.id}`,
+                `${process.env.REACT_APP_BACKEND_URL}/auth/profile/delete/${userProfile.id}`,
                 {
                     headers: {
                         accessToken: localStorage.getItem('accessToken'),
@@ -61,7 +61,7 @@ const Profile = () => {
         try {
             const values = await form.validateFields(); // Get the values from the form
             await axios.put(
-                `http://localhost:3001/auth/profile/edit/${userProfile.id}`,
+                `${process.env.REACT_APP_BACKEND_URL}/auth/profile/edit/${userProfile.id}`,
                 values,
                 {
                     headers: {

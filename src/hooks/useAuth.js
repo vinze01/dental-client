@@ -5,7 +5,7 @@ const useAuth = () => {
   const [authState, setAuthState] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/auth/verify', {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/verify`, {
       headers: {
         accessToken: localStorage.getItem('accessToken')
       }

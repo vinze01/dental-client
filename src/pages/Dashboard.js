@@ -6,7 +6,7 @@ import '../css/Dashboard.css';
 
 const fetchAppointments = async (setAppointments) => {
     try {
-        const response = await axios.get('http://localhost:3001/appointments/dashboard', {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/appointments/dashboard`, {
             headers: {
                 accessToken: localStorage.getItem('accessToken'),
             },
@@ -26,7 +26,7 @@ const handleEdit = (record, setModalVisible, setSelectedAppointment) => {
 
 const handleDelete = (record, fetchAppointments) => {
     console.log('Delete clicked for record:', record);
-    axios.put(`http://localhost:3001/appointments/dashboard/delete/${record.id}`).then((response) => {
+    axios.put(`${process.env.REACT_APP_BACKEND_URL}/appointments/dashboard/delete/${record.id}`).then((response) => {
         console.log('response', response);
         notification.success({
             message: 'Success',
@@ -115,7 +115,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchDoctors = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/auth/users/role/DOCTOR', {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/users/role/DOCTOR`, {
                     headers: {
                         accessToken: localStorage.getItem('accessToken'),
                     },
@@ -135,7 +135,7 @@ const Dashboard = () => {
 
     const handleModalOk = async (values) => {
         try {
-            const response = await axios.put(`http://localhost:3001/appointments/dashboard/edit/${selectedAppointment.id}`, {
+            const response = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/appointments/dashboard/edit/${selectedAppointment.id}`, {
                 ...values,
                 date: values.date.format('YYYY-MM-DD'),
                 time: values.time.format('HH:mm:ss'),

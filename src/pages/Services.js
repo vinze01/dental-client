@@ -16,11 +16,11 @@ function Services() {
   const [doctorUsers, setDoctorUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/services').then((response) => {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/services`).then((response) => {
       setListOfService(response.data);
     });
 
-    axios.get('http://localhost:3001/auth/users/role/DOCTOR')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/users/role/DOCTOR`)
       .then((response) => {
         setDoctorUsers(response.data);
       })
@@ -67,7 +67,7 @@ function Services() {
         values.time = formattedTime;
         values.serviceId = selectedService.id;
         console.log('Form Values:', values);
-        axios.post('http://localhost:3001/appointments/schedule', values, {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/appointments/schedule`, values, {
           headers: {
             accessToken: localStorage.getItem('accessToken')
           }
